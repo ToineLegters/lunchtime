@@ -2,11 +2,13 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\VendorCategory;
 use App\Filament\Resources\VendorResource\Pages;
 use App\Filament\Resources\VendorResource\RelationManagers;
 use App\Models\Vendor;
 use Filament\Forms;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,6 +29,9 @@ class VendorResource extends Resource
     {
         return $form
             ->schema([
+                ToggleButtons::make('category')
+                    ->inline()
+                    ->options(VendorCategory::class),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),

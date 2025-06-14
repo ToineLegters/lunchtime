@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\VendorCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,11 @@ class Vendor extends Model
         'city',
         'phone',
         'email',
-        'website'
+        'website',
+        'category'
+    ];
+
+    protected $casts = [
+        'category' => 'array'
     ];
 }
