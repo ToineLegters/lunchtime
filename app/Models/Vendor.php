@@ -24,7 +24,10 @@ class Vendor extends Model
         'category'
     ];
 
+    /**
+     * @var \class-string[]
+     */
     protected $casts = [
-        'category' => 'array'
+        'category' => VendorCategory::class
     ];
 }
